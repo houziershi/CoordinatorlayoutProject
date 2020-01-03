@@ -30,11 +30,9 @@ public class FixAppBarLayoutBehavior extends AppBarLayout.Behavior {
 
     private AppBarLayout appBarLayout;
     private CoordinatorLayout coordinatorLayout;
-    private Context context;
 
     public FixAppBarLayoutBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.context = context;
     }
 
     @Override
