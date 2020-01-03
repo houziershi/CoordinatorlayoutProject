@@ -3,17 +3,20 @@ package com.felix.adjustablelayout;
 import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
-import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MaiActivity";
+
+    private static final String APPBAR_LAYOUT_TAG = "fuli_page_hide_tag";
 
     //fragment的适配器
     private MainTabFragmentAdapter mainTabFragmentAdapter;
@@ -40,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //初始化方法
-    private void init(){
+    private void init() {
         mTabs = (SmartTabLayout) findViewById(R.id.tabs);
-        mainTabFragmentAdapter = new MainTabFragmentAdapter(getSupportFragmentManager(),this);
+        mainTabFragmentAdapter = new MainTabFragmentAdapter(getSupportFragmentManager(), this);
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPager.setAdapter(mainTabFragmentAdapter);
         mTabs.setViewPager(mViewPager);
@@ -53,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // 初始化AppBarLayout
-    private void initAppBarLayout(){
+    private void initAppBarLayout() {
         LayoutTransition mTransition = new LayoutTransition();
         /**
          * 添加View时过渡动画效果
@@ -70,48 +73,45 @@ public class MainActivity extends AppCompatActivity {
         mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                Log.i(TAG, " <onOffsetChanged>..........." + verticalOffset);
                 verticalOffset = Math.abs(verticalOffset);
-                if ( verticalOffset >= headerLayout.getBottom() ){
-                    isHideHeaderLayout = true;
+                if (verticalOffset >= headerLayout.getBottom()) {
                     //当偏移量超过顶部layout的高度时，我们认为他已经完全移动出屏幕了
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            AppBarLayout.LayoutParams mParams = (AppBarLayout.LayoutParams) headerLayout.getLayoutParams();
-                            mParams.setScrollFlags(0);
-                            headerLayout.setLayoutParams(mParams);
-                            headerLayout.setVisibility(View.GONE);
-                        }
-                    },100);
+                    hideHead();
                 }
             }
         });
     }
 
+    private void hideHead() {
+        Toast.makeText(this, "隐藏头部", Toast.LENGTH_LONG);
+        isHideHeaderLayout = true;
+        /**Created by guokun on 2020/1/3.
+         * Description: 核心代码*/
+        mAppBarLayout.setTag(APPBAR_LAYOUT_TAG);
+    }
+
+    private void showHead() {
+        Toast.makeText(this, "显示头部", Toast.LENGTH_LONG);
+        isHideHeaderLayout = false;
+        /**Created by guokun on 2020/1/3.
+         * Description: 核心代码*/
+        mAppBarLayout.setTag(null);
+    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ( keyCode == KeyEvent.KEYCODE_BACK ){
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
             //监听返回键
-            if ( isHideHeaderLayout ){
-                isHideHeaderLayout = false;
-                ((MainTabFragment)mainTabFragmentAdapter.getFragments().get(0)).getRvList().scrollToPosition(0);
-                headerLayout.setVisibility(View.VISIBLE);
-
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        AppBarLayout.LayoutParams mParams = (AppBarLayout.LayoutParams) headerLayout.getLayoutParams();
-                        mParams.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL|
-                                AppBarLayout.LayoutParams.SCROLL_FLAG_EXIT_UNTIL_COLLAPSED);
-                        headerLayout.setLayoutParams(mParams);
-                    }
-                },300);
-            }else {
+            if (isHideHeaderLayout) {
+                showHead();
+            } else {
                 finish();
             }
             return true;
         }
         return super.onKeyDown(keyCode, event);
     }
+
+
 }

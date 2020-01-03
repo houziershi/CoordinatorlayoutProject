@@ -18,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
-            android:theme="@style/MainAppBar">
+            android:theme="@style/MainAppBar"
+            app:layout_behavior=".FixAppBarLayoutBehavior">
 
             <LinearLayout
                 android:id="@+id/ll_header_layout"
@@ -88,13 +89,43 @@
                     android:gravity="center"
                     android:text="5555555" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="111111" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="22222222" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="33333333" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="4444444444" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="5555555" />
+
 
             </LinearLayout>
 
             <com.ogaclejapan.smarttablayout.SmartTabLayout
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="@dimen/tab_height"
                 android:background="@android:color/white"
                 app:layout_scrollFlags="scroll"
                 app:stl_customTabTextLayoutId="@layout/custom_tab"
