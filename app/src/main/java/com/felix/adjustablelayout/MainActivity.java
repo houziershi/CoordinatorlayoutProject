@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void hideHead() {
-        Toast.makeText(this, "隐藏头部", Toast.LENGTH_LONG);
+        Toast.makeText(this, "隐藏头部", Toast.LENGTH_SHORT).show();
         isHideHeaderLayout = true;
         /**Created by guokun on 2020/1/3.
          * Description: 核心代码*/
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showHead() {
-        Toast.makeText(this, "显示头部", Toast.LENGTH_LONG);
+        Toast.makeText(this, "显示头部", Toast.LENGTH_SHORT).show();
         isHideHeaderLayout = false;
         /**Created by guokun on 2020/1/3.
          * Description: 核心代码*/

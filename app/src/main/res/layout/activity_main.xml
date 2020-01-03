@@ -33,92 +33,91 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center"
-                    android:text="111111" />
+                    android:text="头部" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center"
-                    android:text="22222222" />
+                    android:text="头部" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center"
-                    android:text="33333333" />
+                    android:text="头部" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center"
-                    android:text="4444444444" />
+                    android:text="头部" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center"
-                    android:text="5555555" />
+                    android:text="头部" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center"
-                    android:text="111111" />
+                    android:text="头部" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center"
-                    android:text="22222222" />
+                    android:text="头部" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center"
-                    android:text="33333333" />
+                    android:text="头部" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center"
-                    android:text="4444444444" />
+                    android:text="头部" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center"
-                    android:text="5555555" />
+                    android:text="头部" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center"
-                    android:text="111111" />
+                    android:text="头部" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center"
-                    android:text="22222222" />
+                    android:text="头部" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center"
-                    android:text="33333333" />
+                    android:text="头部" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center"
-                    android:text="4444444444" />
+                    android:text="头部" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:gravity="center"
-                    android:text="5555555" />
-
+                    android:text="头部" />
 
             </LinearLayout>
 
