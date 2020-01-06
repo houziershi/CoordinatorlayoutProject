@@ -485,9 +485,29 @@ public class MainActivity extends AppCompatActivity {
         offset = -(appBarLayout.getChildAt(0).getBottom());
     }
 ```
+
+```
+    private void hideHead() {
+        Toast.makeText(this, "隐藏头部", Toast.LENGTH_SHORT).show();
+        isHideHeaderLayout = true;
+        /**Created by guokun on 2020/1/3.
+         * Description: 核心代码*/
+        mAppBarLayout.setTag(APPBAR_LAYOUT_TAG);
+    }
+
+    private void showHead() {
+        Toast.makeText(this, "显示头部", Toast.LENGTH_SHORT).show();
+        isHideHeaderLayout = false;
+        /**Created by guokun on 2020/1/3.
+         * Description: 核心代码*/
+        mAppBarLayout.setTag(null);
+    }
+```
+
 当头部滑出页面后，AppBarLayout的TopAndBottomOffset始终设为头部高度，这样一来就无法滑出头部AppBarLayout的内容；系统退出时，AppBarLayout恢复正常使用；
 
 
 ##### 参考
 - [Android - 实现微博发现页面的效果（利用CoordinatorLayout+AppBarLayout）](https://www.jianshu.com/p/18363b0ea60f)
+- [Demo地址](https://github.com/houziershi/CoordinatorlayoutProject)
 
